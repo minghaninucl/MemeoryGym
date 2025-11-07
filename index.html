@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memeory Gym</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <span class="brand-mark">🧠</span>
+          <div>
+            <h1>Memeory Gym</h1>
+            <p class="tagline">把灵感、摘抄和记忆训练集中在一个地方</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <span class="storage-hint">数据保存在本地浏览器中</span>
+        </div>
+      </header>
+      <main class="app-main">
+        <aside class="notebook-panel">
+          <div class="panel-header">
+            <h2>笔记本</h2>
+            <p class="panel-subtitle">按主题整理你的摘录</p>
+          </div>
+          <div id="notebookList" class="notebook-list"></div>
+        </aside>
+        <section class="workspace">
+          <section class="note-composer" aria-labelledby="composer-title">
+            <div class="composer-header">
+              <div class="theme-selector" id="themeSelectorArea">
+                <label for="themeSelect">主题</label>
+                <div class="theme-selector-controls">
+                  <select id="themeSelect" aria-label="选择主题"></select>
+                  <button type="button" id="addThemeBtn" class="ghost-button">+ 新主题</button>
+                </div>
+                <div id="themeCreator" class="theme-creator hidden">
+                  <input id="newThemeInput" type="text" placeholder="输入新的主题名称" maxlength="40" />
+                  <p id="themeCreatorMessage" class="theme-creator-message" role="alert"></p>
+                  <div class="theme-creator-actions">
+                    <button type="button" id="confirmAddTheme" class="primary-button">添加</button>
+                    <button type="button" id="cancelAddTheme" class="ghost-button">取消</button>
+                  </div>
+                </div>
+              </div>
+              <div class="composer-meta">
+                <h2 id="composer-title">创建新笔记</h2>
+                <p>粘贴或输入你想记住的内容，保存后会自动归档到对应主题的笔记本。</p>
+              </div>
+            </div>
+            <textarea id="noteInput" class="note-input" placeholder="在此粘贴或输入你的笔记、摘抄或想法..."></textarea>
+            <div class="composer-actions">
+              <button type="button" id="saveNoteBtn" class="primary-button">保存笔记</button>
+            </div>
+          </section>
+          <section class="note-board">
+            <header class="note-board-header">
+              <h2 id="noteBoardTitle">笔记列表</h2>
+              <p id="noteBoardSubtitle" class="note-board-subtitle"></p>
+            </header>
+            <div id="noteList" class="note-list" aria-live="polite"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
